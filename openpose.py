@@ -27,11 +27,8 @@ inWidth = args.width
 inHeight = args.height
 c=0
 net = cv.dnn.readNetFromTensorflow("graph_opt.pb")
-#img = cv.imread("pose.png")
-#plt.imshow(cv.cvtColor(img,4))# cv.COLOR_BGR2BGR))
 cap = cv.VideoCapture(args.input if args.input else 0)
 while cv.waitKey(1) < 0:
-#def pose_correction(frame):
     hasFrame, frame = cap.read()
     if not hasFrame:
         cv.waitKey()
@@ -79,7 +76,3 @@ while cv.waitKey(1) < 0:
     cv.putText(frame, '%.2fms' % (t / freq), (10, 20), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
 
     cv.imshow('OpenPose using OpenCV', frame)
-    #return frame
-
-#pst_img=pose_correction(img)
-#plt.imshow(pst_img)#, cv.COLOR_BGR2BGR))
